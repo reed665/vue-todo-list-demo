@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li v-for="(todo, index) of todos" :key="index">
-      {{ todo }}
+    <li v-for="todo of todos" :key="todo.id" @click="$emit('removeTodo', todo)">
+      {{ todo.name }}
     </li>
   </ul>
 </template>

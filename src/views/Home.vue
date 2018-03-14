@@ -3,7 +3,7 @@
     <!-- <img src="../assets/logo.png"> -->
     <HelloWorld msg="Welcome to Your Vue.js Todo List App"/>
     <TodoForm @onNewTodo="addTodo" />
-    <TodoList :todos="todos" />
+    <TodoList :todos="todos" @removeTodo="removeTodo" />
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
     TodoList,
     TodoForm,
   },
+  created() {
+    this.$store.dispatch('fetchTodos')
+  },
   computed: {
     todos() {
       return this.$store.getters.todos
@@ -27,7 +30,10 @@ export default {
   },
   methods: {
     addTodo(todo) {
-      this.$store.commit('addTodo', todo)
+      this.$store.dispatch('addTodo', { name: todo })
+    },
+    removeTodo({ id }) {
+      this.$store.dispatch('removeTodo', id)
     }
   }
 }
