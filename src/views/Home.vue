@@ -20,14 +20,14 @@ export default {
     TodoList,
     TodoForm,
   },
-  data() {
-    return {
-      todos: ['todo1', 'todo2']
+  computed: {
+    todos() {
+      return this.$store.getters.todos
     }
   },
   methods: {
     addTodo(todo) {
-      this.todos.unshift(todo)
+      this.$store.commit('addTodo', todo)
     }
   }
 }
