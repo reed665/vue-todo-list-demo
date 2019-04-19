@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "server": "json-server --watch --port=3001 db.json",
-    "start": "vue-cli-service serve",
+    "start": "vue-cli-service serve --port=8001",
     "build": "vue-cli-service build"
   },
   "dependencies": {
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
-    "json-server": "^0.12.1",
+    "json-server": "^0.12.2",
     "vue-template-compiler": "^2.5.13"
   },
   "browserslist": [
